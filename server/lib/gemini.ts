@@ -118,7 +118,7 @@ Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
   }
 }
 
-export async function analyzeCropDiseaseImage(imageData: string, knownDiseases: Array<{plantName: string, diseaseName: string, symptoms: string, recommendedSolution: string}>): Promise<{
+export async function analyzeCropDiseaseImage(imageData: string, knownDiseases: Array<{crop: string, disease: string, description: string, symptoms: string, prevention: string, cure: string}>): Promise<{
   success: boolean;
   plant?: string;
   disease?: string;
@@ -132,7 +132,7 @@ export async function analyzeCropDiseaseImage(imageData: string, knownDiseases: 
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
-    const diseaseList = knownDiseases.map(d => `${d.plantName}: ${d.diseaseName} - ${d.symptoms}`).join('\n');
+    const diseaseList = knownDiseases.slice(0, 50).map(d => `${d.crop}: ${d.disease} - ${d.symptoms}`).join('\n');
     
     const prompt = `You are an expert plant pathologist. Analyze this crop/plant leaf image to detect any diseases.
 

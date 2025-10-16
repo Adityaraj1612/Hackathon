@@ -82,10 +82,12 @@ const punjabDistricts = [
 ];
 
 interface CropDiseaseData {
-  plantName: string;
-  diseaseName: string;
+  crop: string;
+  disease: string;
+  description: string;
   symptoms: string;
-  recommendedSolution: string;
+  prevention: string;
+  cure: string;
 }
 
 interface CropInfoData {
@@ -505,18 +507,26 @@ export default function FarmersSupport() {
                         <CardHeader className="pb-3">
                           <div className="flex items-center gap-2">
                             <Bug className="w-5 h-5 text-orange-600" />
-                            <CardTitle className="text-lg text-orange-600">{disease.diseaseName}</CardTitle>
+                            <CardTitle className="text-lg text-orange-600">{disease.disease}</CardTitle>
                           </div>
-                          <CardDescription className="capitalize font-medium">{disease.plantName}</CardDescription>
+                          <CardDescription className="capitalize font-medium">{disease.crop}</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
+                          <div className="p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                            <p className="text-sm font-semibold mb-2 text-blue-700 dark:text-blue-300">Description:</p>
+                            <p className="text-sm text-blue-800 dark:text-blue-200">{disease.description}</p>
+                          </div>
                           <div className="p-3 bg-orange-50 dark:bg-orange-950/20 rounded-lg">
                             <p className="text-sm font-semibold mb-2 text-orange-700 dark:text-orange-300">Symptoms:</p>
                             <p className="text-sm text-orange-800 dark:text-orange-200">{disease.symptoms}</p>
                           </div>
+                          <div className="p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                            <p className="text-sm font-semibold mb-2 text-purple-700 dark:text-purple-300">Prevention:</p>
+                            <p className="text-sm text-purple-800 dark:text-purple-200">{disease.prevention}</p>
+                          </div>
                           <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
-                            <p className="text-sm font-semibold mb-2 text-green-700 dark:text-green-300">Prevention & Treatment:</p>
-                            <p className="text-sm text-green-800 dark:text-green-200">{disease.recommendedSolution}</p>
+                            <p className="text-sm font-semibold mb-2 text-green-700 dark:text-green-300">Treatment/Cure:</p>
+                            <p className="text-sm text-green-800 dark:text-green-200">{disease.cure}</p>
                           </div>
                         </CardContent>
                       </Card>
