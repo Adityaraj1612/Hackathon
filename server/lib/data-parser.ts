@@ -507,10 +507,12 @@ export function getDistrictCoordinates(state: string, district: string): { lat: 
 
 // Crop Disease Data Interface
 export interface CropDiseaseData {
-  plantName: string;
-  diseaseName: string;
+  crop: string;
+  disease: string;
+  description: string;
   symptoms: string;
-  recommendedSolution: string;
+  prevention: string;
+  cure: string;
 }
 
 // Crop Recommendation Data Interface
@@ -545,12 +547,14 @@ export async function parseCropDiseaseCSV(): Promise<CropDiseaseData[]> {
     const diseaseData: CropDiseaseData[] = [];
     
     for (const row of result.data as any[]) {
-      if (row['Plant Name'] && row['Disease Name']) {
+      if (row['Crop'] && row['Disease']) {
         diseaseData.push({
-          plantName: String(row['Plant Name']).trim(),
-          diseaseName: String(row['Disease Name']).trim(),
+          crop: String(row['Crop']).trim(),
+          disease: String(row['Disease']).trim(),
+          description: String(row['Description'] || '').trim(),
           symptoms: String(row['Symptoms'] || '').trim(),
-          recommendedSolution: String(row['Recommended Solution'] || '').trim(),
+          prevention: String(row['Prevention'] || '').trim(),
+          cure: String(row['Cure'] || '').trim(),
         });
       }
     }
@@ -566,16 +570,16 @@ export async function parseCropDiseaseCSV(): Promise<CropDiseaseData[]> {
 // Fallback disease data
 function getFallbackDiseaseData(): CropDiseaseData[] {
   return [
-    { plantName: 'Tomato', diseaseName: 'Late Blight', symptoms: 'Dark spots on leaves with white mold underside', recommendedSolution: 'Use Mancozeb fungicide and remove infected plants' },
-    { plantName: 'Tomato', diseaseName: 'Leaf Curl Virus', symptoms: 'Upward curling and yellowing of leaves', recommendedSolution: 'Control whiteflies and use resistant varieties' },
-    { plantName: 'Rice', diseaseName: 'Bacterial Leaf Blight', symptoms: 'Yellowing and drying of leaf tips', recommendedSolution: 'Apply Streptocycline and avoid standing water' },
-    { plantName: 'Rice', diseaseName: 'Brown Spot', symptoms: 'Small round brown lesions on leaves', recommendedSolution: 'Use Mancozeb spray and ensure proper field drainage' },
-    { plantName: 'Wheat', diseaseName: 'Leaf Rust', symptoms: 'Orange-brown pustules on leaves', recommendedSolution: 'Use Propiconazole or grow rust-resistant varieties' },
-    { plantName: 'Potato', diseaseName: 'Early Blight', symptoms: 'Brown concentric rings on older leaves', recommendedSolution: 'Use Chlorothalonil spray and rotate crops' },
-    { plantName: 'Maize', diseaseName: 'Turcicum Leaf Blight', symptoms: 'Elongated grayish spots on leaves', recommendedSolution: 'Apply Mancozeb or Propiconazole sprays' },
-    { plantName: 'Cotton', diseaseName: 'Leaf Curl Virus', symptoms: 'Thickened curling leaves and stunted growth', recommendedSolution: 'Control whiteflies and remove infected plants' },
-    { plantName: 'Apple', diseaseName: 'Scab', symptoms: 'Olive-green velvety spots on leaves and fruits', recommendedSolution: 'Use Captan or Mancozeb and ensure air circulation' },
-    { plantName: 'Mango', diseaseName: 'Anthracnose', symptoms: 'Black lesions on leaves and fruits', recommendedSolution: 'Apply copper-based fungicide and prune trees' }
+    { crop: 'Tomato', disease: 'Late Blight', description: 'Fungal infection by Phytophthora infestans', symptoms: 'Dark lesions on leaves and stems', prevention: 'Remove infected plants', cure: 'Apply fungicide like Ridomil' },
+    { crop: 'Tomato', disease: 'Early Blight', description: 'Fungal disease caused by Alternaria solani', symptoms: 'Concentric rings on leaves', prevention: 'Crop rotation', cure: 'Use mancozeb spray' },
+    { crop: 'Rice', disease: 'Bacterial Leaf Blight', description: 'Bacterial infection caused by Xanthomonas oryzae', symptoms: 'Pale yellow lesions that turn brown', prevention: 'Proper field sanitation', cure: 'Apply copper-based bactericides' },
+    { crop: 'Rice', disease: 'Brown Spot', description: 'Fungal disease', symptoms: 'Small brown spots on leaves', prevention: 'Use balanced fertilizer', cure: 'Apply fungicide' },
+    { crop: 'Wheat', disease: 'Rust', description: 'Fungal disease caused by Puccinia spp.', symptoms: 'Orange pustules on stems', prevention: 'Use resistant varieties', cure: 'Apply fungicide spray' },
+    { crop: 'Potato', disease: 'Early Blight', description: 'Fungal disease', symptoms: 'Concentric rings on leaves and stems', prevention: 'Crop rotation', cure: 'Apply mancozeb' },
+    { crop: 'Maize', disease: 'Turcicum Leaf Blight', description: 'Fungal infection', symptoms: 'Gray-green lesions on leaves', prevention: 'Resistant hybrids', cure: 'Fungicide application' },
+    { crop: 'Cotton', disease: 'Leaf Curl Virus', description: 'Viral disease', symptoms: 'Leaf curling and stunting', prevention: 'Use resistant varieties', cure: 'Remove infected plants' },
+    { crop: 'Apple', disease: 'Apple Scab', description: 'Fungal infection by Venturia inaequalis', symptoms: 'Dark spots on leaves and fruits', prevention: 'Prune trees', cure: 'Apply captan spray' },
+    { crop: 'Banana', disease: 'Panama Wilt', description: 'Fungal disease', symptoms: 'Foliage yellowing and wilting', prevention: 'Use resistant cultivars', cure: 'Soil treatment with fungicide' }
   ];
 }
 
