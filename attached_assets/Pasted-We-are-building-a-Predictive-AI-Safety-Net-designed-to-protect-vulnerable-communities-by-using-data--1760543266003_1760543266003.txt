@@ -1,0 +1,107 @@
+We are building a Predictive AI Safety Net designed to protect vulnerable communities by using data to forecast future risks and prevent danger before it happens.
+
+Our system primarily focuses on three key areas:
+
+Women Safety and Empowerment
+
+Disaster Management
+
+Farmer Support and Agricultural Forecasting
+
+System Workflow
+Data and AI Model
+
+We use large datasets to train a predictive AI model that runs in the backend.
+
+This model analyzes risk patterns and forecasts potential threats related to women’s safety, disasters, and agriculture.
+
+User Interface & Framework
+
+The system starts with an authentication page for user login and sign-up.
+
+Once authenticated, the user creates a profile and grants location access for accurate predictions.
+
+Home Page Layout
+
+The homepage is divided into sections:
+
+A hero image slider displaying government schemes, alerts, and danger zone notifications.
+
+Three main buttons:
+
+Women Safety & Empowerment
+
+Disaster Management
+
+Farmers Section
+
+1. Women Safety & Empowerment Section
+This section has two major features:
+
+a) Government Schemes
+The page lists all women-related schemes (from the provided dataset) in an organized grid layout.
+
+Each scheme card includes:
+
+Eligibility criteria
+
+“Apply Now” button
+
+Clicking on the button redirects the user to the official government website to apply for that scheme.
+
+b) Risk Area Information
+A map is integrated that marks high-risk or crime-prone zones in red, based on the provided dataset.
+
+If a user enters a red zone, the system sends a real-time notification saying:
+
+“You are in a Danger Zone. Are you Safe?”
+
+Two options appear: Safe / Not Safe.
+
+If the user ignores the alert, a 30-second emergency alarm will play.
+
+If the alarm is stopped within 30 seconds → Normal.
+
+If not stopped → It automatically triggers an SOS emergency call from the user’s phone.
+
+2. Disaster Management Section
+This section provides two key options:
+
+Current Weather Forecast – Fetches real-time weather data using an external API.
+
+Risk Mapping – Uses both live weather data and our dataset to mark disaster-prone zones (floods, storms, droughts, etc.) on a map with visual alerts.
+
+3. Farmers Section
+This section is focused on agricultural intelligence and farmer support. It includes:
+
+a) Fertile Land & Crop Recommendation
+Displays data (initially for Punjab) showing which districts have the most fertile land.
+
+Suggests the best crops to grow based on:
+
+Soil fertility
+
+Profitability
+
+3-month weather forecast predictions
+
+b) Crop Disease Detection
+A feature that detects plant or leaf diseases using image recognition.
+
+Users can upload a photo of the leaf, and the system will identify possible diseases and suggest remedies.
+
+(You mentioned you’ll provide the detection code for this part.)
+
+Data Sources
+The entire system will fetch data from uploaded CSV and PDF datasets.
+
+This data will be dynamically integrated into the model and UI for real-time analysis and updates.
+
+Conclusion
+The Predictive AI Safety Net acts as an intelligent safety infrastructure for communities by:
+
+Predicting potential threats
+
+Protecting individuals through real-time alerts and automation
+
+Empowering users with access to verified government schemes and location-based safety insights
