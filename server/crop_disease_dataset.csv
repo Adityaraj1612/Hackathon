@@ -1,44 +1,88 @@
-Plant Name,Disease Name,Symptoms,Recommended Solution
-Tomato,Late Blight,Dark spots on leaves with white mold underside,Use Mancozeb fungicide and remove infected plants
-Tomato,Leaf Curl Virus,Upward curling and yellowing of leaves,Control whiteflies and use resistant varieties
-Rice,Bacterial Leaf Blight,Yellowing and drying of leaf tips,Apply Streptocycline and avoid standing water
-Rice,Brown Spot,Small round brown lesions on leaves,Use Mancozeb spray and ensure proper field drainage
-Wheat,Leaf Rust,Orange-brown pustules on leaves,Use Propiconazole or grow rust-resistant varieties
-Wheat,Loose Smut,Black spore masses replace grains,Treat seeds with systemic fungicide before sowing
-Potato,Early Blight,Brown concentric rings on older leaves,Use Chlorothalonil spray and rotate crops
-Potato,Late Blight,Water-soaked spots on leaves,Use Metalaxyl fungicide and destroy infected tubers
-Maize,Turcicum Leaf Blight,Elongated grayish spots on leaves,Apply Mancozeb or Propiconazole sprays
-Maize,Downy Mildew,Yellow stripes and stunted growth,Use resistant hybrids and Metalaxyl treatment
-Cotton,Leaf Curl Virus,Thickened curling leaves and stunted growth,Control whiteflies and remove infected plants
-Sugarcane,Red Rot,Red discolouration of internal tissues,Use disease-free setts and improve field drainage
-Sugarcane,Smut,Black whip-like structures on shoots,Destroy affected clumps and use resistant varieties
-Soybean,Yellow Mosaic Virus,Yellow patches on leaves,Control whiteflies and plant resistant cultivars
-Chili,Anthracnose,Dark sunken lesions on fruits,Use Carbendazim and avoid overhead irrigation
-Chili,Leaf Spot,Small dark lesions on leaves,Use Mancozeb spray and remove infected leaves
-Brinjal,Phomopsis Blight,Grayish lesions on stems and fruits,Remove infected plants and spray Mancozeb
-Paddy,Blast Disease,Diamond-shaped lesions on leaves,Use Tricyclazole fungicide and balanced fertilization
-Groundnut,Tikka Leaf Spot,Circular brown spots on leaves,Use Mancozeb spray and rotate crops
-Mango,Anthracnose,Black lesions on leaves and fruits,Apply copper-based fungicide and prune trees
-Apple,Scab,Olive-green velvety spots on leaves and fruits,Use Captan or Mancozeb and ensure air circulation
-Grapes,Downy Mildew,Yellowish spots on leaves,Use Bordeaux mixture and prune infected shoots
-Banana,Panama Wilt,Yellowing and wilting of leaves,Use disease-free suckers and improve soil drainage
-Citrus,Canker,Raised lesions on leaves and fruits,Remove infected areas and spray copper oxychloride
-Papaya,Powdery Mildew,White powdery coating on leaves,Apply sulfur-based fungicides
-Wheat,Wheat Smut,Black spore masses on grains,Treat seeds with formalin or systemic fungicide
-Rice,Rice Sheath Blight,Lesions on leaf sheath and collar,Apply Propiconazole and maintain proper spacing
-Tomato,Fusarium Wilt,Yellowing and wilting of lower leaves,Use resistant varieties and soil solarization
-Potato,Black Scurf,Black sclerotia on tubers,Use certified disease-free seed and crop rotation
-Maize,Maize Streak Virus,Yellow streaks on leaves,Use resistant varieties and control insect vectors
-Cotton,Boll Rot,Brown rotting bolls,Remove affected bolls and apply fungicides
-Sugarcane,Leaf Scald,White streaks along leaf midrib,Use disease-free setts and remove infected leaves
-Soybean,Phytophthora Root Rot,Wilting and brown roots,Improve drainage and use resistant cultivars
-Chili,Bacterial Wilt,Wilted plants and brown stems,Remove infected plants and soil drenching with streptomycin
-Brinjal,Bacterial Wilt,Yellowing and wilting of plants,Use resistant varieties and soil solarization
-Mango,Powdery Mildew,White powdery coating on leaves and fruits,Apply sulfur fungicide
-Paddy,Bacterial Leaf Blight,Yellowing and drying of leaf tips,Use Streptocycline and avoid standing water
-Apple,Fire Blight,Wilting shoots with brown-black tips,Prune infected shoots and apply streptomycin
-Grapes,Black Rot,Black circular lesions on berries,Apply fungicide and remove infected fruits
-Banana,Black Sigatoka,Dark streaks on leaves,Use resistant cultivars and fungicide sprays
-Citrus,Greening (Huanglongbing),Yellowing leaves and misshapen fruits,Use disease-free planting material and control psyllids
-Papaya,Ring Spot,Yellow ring spots on leaves and fruits,Remove infected plants and spray copper oxychloride
-Rose,Black Spot,Black circular spots on leaves,Remove affected leaves and apply fungicide
+Crop,Disease,Description,Symptoms,Prevention,Cure
+Rice,Leaf Blast,Fungal disease caused by Magnaporthe oryzae,Gray-green lesions on leaves,Use resistant varieties,Apply tricyclazole
+Rice,Bacterial Leaf Blight,Bacterial infection caused by Xanthomonas oryzae,Pale yellow lesions that turn brown,Proper field sanitation,Apply copper-based bactericides
+Rice,Sheath Blight,Fungal infection caused by Rhizoctonia solani,Lesions on leaf sheath,Avoid dense planting,Fungicide application
+Rice,Brown Spot,Fungal disease,Small brown spots on leaves,Use balanced fertilizer,Apply fungicide
+Rice,Stem Rot,Fungal infection,Rotting at stem base,Remove infected stubble,Fungicide treatment
+Rice,False Smut,Fungal infection,Greenish powdery balls on panicles,Remove infected panicles,Fungicide application
+Rice,Stem Borer,Insect disease,Holes in stems,Use resistant varieties,Apply insecticide
+Rice,Yellow Mottle Virus,Viral disease,Yellow mottling on leaves,Use virus-free seeds,Remove infected plants
+Rice,Rice Tungro Virus,Viral infection,Yellow/orange discoloration of leaves,Use virus-free seedlings,Remove infected plants
+Rice,Grain Discoloration,Fungal infection,Discolored grains,Use resistant varieties,Fungicide application
+Wheat,Rust,Fungal disease caused by Puccinia spp.,Orange pustules on stems,Use resistant varieties,Apply fungicide spray
+Wheat,Leaf Blight,Fungal disease,Brown lesions on leaves,Seed treatment with fungicide,Apply fungicide
+Wheat,Powdery Mildew,Fungal infection,White powdery growth on leaves,Avoid high humidity,Apply sulfur spray
+Wheat,Fusarium Head Blight,Fungal disease,Blighted spikelets,Use crop rotation,Apply fungicide
+Wheat,Septoria Leaf Spot,Fungal infection,Small dark spots on leaves,Use disease-free seeds,Fungicide application
+Wheat,Spot Blotch,Fungal disease,Brown spots on leaves,Use resistant varieties,Fungicide application
+Wheat,Ergot,Fungal infection,Dark sclerotia in grains,Clean seeds,Fungicide treatment
+Wheat,Yellow Leaf Spot,Fungal disease,Yellow lesions on leaves,Resistant varieties,Fungicide application
+Maize,Gray Leaf Spot,Fungal disease,Gray/brown rectangular lesions on leaves,Resistant varieties,Fungicide application
+Maize,Common Rust,Fungal infection,Reddish-brown pustules on leaves,Use resistant hybrids,Apply fungicide
+Maize,Northern Leaf Blight,Fungal disease,Long gray-green lesions,Proper spacing,Fungicide spray
+Maize,Maize Streak Virus,Viral disease,Yellow streaks on leaves,Use resistant varieties,Remove infected plants
+Maize,Downy Mildew,Fungal infection,White downy growth on leaf undersides,Good drainage,Fungicide application
+Maize,Maize Dwarf Mosaic Virus,Viral infection,Mosaic leaf patterns,Resistant varieties,Remove infected plants
+Maize,Anthracnose,Fungal disease,Dark lesions on stems and leaves,Crop rotation,Fungicide spray
+Maize,Turcicum Leaf Blight,Fungal infection,Gray-green lesions on leaves,Resistant hybrids,Fungicide application
+Tomato,Early Blight,Fungal disease caused by Alternaria solani,Concentric rings on leaves,Crop rotation,Use mancozeb spray
+Tomato,Late Blight,Fungal infection by Phytophthora infestans,Dark lesions on leaves and stems,Remove infected plants,Apply fungicide like Ridomil
+Tomato,Fusarium Wilt,Fungal disease,Yellowing and wilting of leaves,Use resistant varieties,Soil treatment with fungicide
+Tomato,Bacterial Spot,Bacterial infection,Small dark spots on leaves,Use certified seeds,Apply copper-based bactericides
+Tomato,Septoria Leaf Spot,Fungal disease,Small circular spots with gray centers,Crop rotation,Fungicide application
+Tomato,Tomato Mosaic Virus,Viral infection,Mosaic leaf patterns,Use virus-free seeds,Remove infected plants
+Tomato,Bacterial Canker,Bacterial infection,Wilting of shoots,Resistant varieties,Apply copper-based bactericides
+Tomato,Tomato Yellow Leaf Curl Virus,Viral disease,Leaf curling and yellowing,Use resistant varieties,Remove infected plants
+Tomato,Anthracnose,Fungal disease,Sunken dark lesions on fruits,Sanitation,Fungicide spray
+Potato,Blight,Fungal infection,Dark lesions on stems and tubers,Use certified seed,Apply fungicide
+Potato,Black Scurf,Fungal disease,Black sclerotia on tubers,Seed treatment,Fungicide application
+Potato,Common Scab,Bacterial/fungal disease,Rough corky lesions on tubers,Use disease-free seed,Apply lime and fungicide
+Potato,Silver Scurf,Fungal disease,Silvery lesions on tuber surface,Proper storage,Fungicide treatment
+Potato,PVY Virus,Viral infection,Mosaic leaves,Use virus-free seed,Remove infected plants
+Potato,Early Blight,Fungal disease,Concentric rings on leaves and stems,Crop rotation,Apply mancozeb
+Potato,Late Blight,Fungal infection,Dark lesions on leaves and tubers,Remove infected plants,Apply fungicide
+Potato,Blackleg,Bacterial infection,Blackened stem base,Use certified seed,Apply bactericide
+Potato,Verticillium Wilt,Fungal infection,Yellowing and wilting,Crop rotation,Fungicide application
+Apple,Apple Scab,Fungal infection by Venturia inaequalis,Dark spots on leaves and fruits,Prune trees,Apply captan spray
+Apple,Fire Blight,Bacterial infection,Wilting of shoots,Prune infected branches,Apply streptomycin spray
+Apple,Cedar Apple Rust,Fungal infection,Orange pustules on leaves,Remove nearby cedar trees,Apply fungicide
+Apple,Powdery Mildew,Fungal infection,White powdery growth on leaves,Resistant varieties,Apply sulfur spray
+Apple,Bitter Rot,Fungal disease,Brown sunken lesions on fruits,Sanitation,Fungicide application
+Apple,Leaf Spot,Fungal disease,Small brown spots on leaves,Prune infected parts,Fungicide spray
+Apple,Apple Mosaic Virus,Viral infection,Light green/yellow patterns on leaves,Resistant varieties,Remove infected plants
+Cotton,Bacterial Blight,Bacterial disease,Water-soaked lesions on leaves,Resistant varieties,Apply copper-based bactericides
+Cotton,Fusarium Wilt,Fungal infection,Yellowing and wilting of leaves,Use resistant varieties,Soil treatment with fungicide
+Cotton,Verticillium Wilt,Fungal disease,Leaf yellowing and stunting,Crop rotation,Fungicide application
+Cotton,Root Rot,Fungal infection,Root decay,Well-drained soil,Fungicide treatment
+Cotton,Leaf Curl Virus,Viral disease,Leaf curling and stunting,Use resistant varieties,Remove infected plants
+Cotton,Anthracnose,Fungal disease,Dark lesions on leaves and bolls,Crop rotation,Fungicide spray
+Cotton,Leaf Spot,Fungal infection,Small brown spots on leaves,Resistant varieties,Fungicide application
+Cotton,Cotton Boll Rot,Fungal infection,Rotting of bolls,Prune infected bolls,Fungicide spray
+Cotton,Root Knot Nematode,Nematode infection,Root galls,Crop rotation,Nematode treatment
+Banana,Panama Wilt,Fungal disease,Foliage yellowing and wilting,Use resistant cultivars,Soil treatment with fungicide
+Banana,Bacterial Wilt,Bacterial disease,Wilting and oozing from pseudostem,Clean tools,Remove infected plants
+Banana,Black Sigatoka,Fungal infection,Black streaks on leaves,Resistant varieties,Fungicide application
+Banana,Cigar End Rot,Fungal disease,Brown-black lesions on fruit tip,Good ventilation,Fungicide spray
+Banana,Fusarium Wilt,Fungal infection,Leaf yellowing and stunting,Resistant cultivars,Soil treatment with fungicide
+Banana,Moko Disease,Bacterial infection,Wilting and stem discoloration,Use certified planting material,Remove infected plants
+Banana,Nematode Infestation,Parasitic worms,Root damage and stunted growth,Crop rotation,Nematode treatment
+Banana,Banana Bunchy Top Virus,Viral infection,Stunted growth and bunched leaves,Resistant cultivars,Remove infected plants
+Banana,Leaf Spot,Fungal disease,Brown spots on leaves,Remove infected leaves,Fungicide application
+Grapes,Downy Mildew,Fungal infection,Yellow spots on leaves,Use resistant varieties,Fungicide application
+Grapes,Powdery Mildew,Fungal disease,White powdery growth on leaves and fruits,Good ventilation,Apply sulfur spray
+Grapes,Botrytis Bunch Rot,Fungal infection,Brown rotting of berries,Crop sanitation,Fungicide application
+Grapes,Black Rot,Fungal disease,Black lesions on leaves and fruits,Prune infected parts,Fungicide application
+Grapes,Anthracnose,Fungal infection,Dark sunken lesions on berries,Resistant varieties,Fungicide spray
+Grapes,Phomopsis Cane and Leaf Spot,Fungal infection,Brown lesions on canes and leaves,Prune infected parts,Fungicide application
+Grapes,Leafroll Virus,Viral disease,Downward curling of leaves,Resistant varieties,Remove infected plants
+Grapes,Grape Fanleaf Virus,Viral disease,Leaf deformation,Use certified planting material,Remove infected plants
+Grapes,Black Measles,Fungal infection,Dark lesions on berries,Sanitation,Fungicide spray
+Soybean,Downy Mildew,Fungal infection,Yellowing and fuzzy growth on leaves,Resistant varieties,Fungicide application
+Soybean,Rust,Fungal disease,Orange pustules on leaves,Use resistant varieties,Apply fungicide
+Soybean,Leaf Spot,Fungal disease,Dark spots on leaves,Crop rotation,Fungicide treatment
+Soybean,Bacterial Blight,Bacterial disease,Water-soaked lesions on leaves,Seed treatment,Apply copper-based bactericides
+Soybean,Fusarium Wilt,Fungal infection,Yellowing and wilting of plants,Resistant varieties,Soil treatment with fungicide
+Soybean,Nematode Infestation,Parasitic worms,Root galls and stunting,Crop rotation,Nematode treatment
+Soybean,Stem Canker,Fungal infection,Lesions on stems,Resistant varieties,Fungicide spray
+Soybean,Sclerotinia Stem Rot,Fungal infection,White fluffy growth on stems,Crop rotation,Fungicide spray
+Soybean,Bacterial Pustule,Bacterial disease,Small raised pustules on leaves,Resistant varieties,Apply copper-based bactericides
