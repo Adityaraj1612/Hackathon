@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { parseSchemesCSV, parseCrimePDF, parseComprehensiveCrimeCSV, parseDisasterCSV, getStateCoordinates, getDistrictCoordinates, type DisasterData, parseCropDiseaseCSV, parseCropRecommendationCSV, type CropDiseaseData, type CropRecommendationData } from "./lib/data-parser";
-import { analyzeSafetyRisk, getCropRecommendations, predictDisasterRisk } from "./lib/gemini";
+import { analyzeSafetyRisk, getCropRecommendations, predictDisasterRisk, analyzeCropDiseaseImage } from "./lib/gemini";
 import bcrypt from "bcrypt";
 import { storage } from "./storage";
 import { insertUserSchema } from "@shared/schema";
@@ -479,7 +479,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // POST /api/analyze-crop-disease - AI-powered crop disease detection from image
+  // POST /api/analyze-crop-disease - AI-powered crop disease detection from image using Gemini
   app.post("/api/analyze-crop-disease", async (req, res) => {
     try {
       const { imageData } = req.body;
@@ -488,47 +488,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: 'No image data provided' });
       }
       
-      // Remove data URL prefix if present
-      const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
-      
-      // Call Python disease detection script
-      const { spawn } = await import('child_process');
-      const python = spawn('python3', [
-        'server/disease_detection.py',
-        base64Data
-      ]);
-      
-      let result = '';
-      let error = '';
-      
-      python.stdout.on('data', (data) => {
-        result += data.toString();
-      });
-      
-      python.stderr.on('data', (data) => {
-        error += data.toString();
-      });
-      
-      python.on('close', (code) => {
-        if (code !== 0) {
-          console.error('Python script error:', error);
-          return res.status(500).json({ 
-            error: 'Disease detection failed',
-            details: error 
-          });
-        }
-        
-        try {
-          const prediction = JSON.parse(result);
-          res.json(prediction);
-        } catch (e) {
-          res.status(500).json({ error: 'Failed to parse prediction result' });
-        }
-      });
+      const result = await analyzeCropDiseaseImage(imageData, cropDiseaseCache);
+      res.json(result);
       
     } catch (error: any) {
       console.error('Disease detection error:', error);
-      res.status(500).json({ error: error.message || 'Disease detection failed' });
+      res.status(500).json({ 
+        success: false,
+        error: error.message || 'Disease detection failed' 
+      });
     }
   });
 

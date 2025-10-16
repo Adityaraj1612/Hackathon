@@ -527,7 +527,7 @@ export interface CropRecommendationData {
 
 // Parse crop disease CSV
 export async function parseCropDiseaseCSV(): Promise<CropDiseaseData[]> {
-  const csvPath = path.join(process.cwd(), 'server', 'crop_diseases_clean.csv');
+  const csvPath = path.join(process.cwd(), 'server', 'crop_disease_dataset.csv');
   
   try {
     if (!fs.existsSync(csvPath)) {

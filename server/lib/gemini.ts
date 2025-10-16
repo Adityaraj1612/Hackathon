@@ -117,3 +117,79 @@ Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
     };
   }
 }
+
+export async function analyzeCropDiseaseImage(imageData: string, knownDiseases: Array<{plantName: string, diseaseName: string, symptoms: string, recommendedSolution: string}>): Promise<{
+  success: boolean;
+  plant?: string;
+  disease?: string;
+  confidence?: number;
+  description?: string;
+  prevention?: string;
+  treatment?: string;
+  severity?: string;
+  error?: string;
+}> {
+  try {
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
+    const diseaseList = knownDiseases.map(d => `${d.plantName}: ${d.diseaseName} - ${d.symptoms}`).join('\n');
+    
+    const prompt = `You are an expert plant pathologist. Analyze this crop/plant leaf image to detect any diseases.
+
+Known diseases database:
+${diseaseList}
+
+Analyze the image and provide:
+1. Plant type (e.g., Tomato, Rice, Wheat, etc.)
+2. Disease name (match from database if possible, or identify the disease)
+3. Detailed description of what you observe
+4. Prevention measures
+5. Treatment recommendations
+6. Severity level (Low/Moderate/High)
+7. Confidence level (0-100)
+
+Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
+{
+  "success": true,
+  "plant": "plant name",
+  "disease": "disease name",
+  "confidence": 85,
+  "description": "detailed description of the disease and symptoms observed",
+  "prevention": "prevention measures",
+  "treatment": "treatment recommendations",
+  "severity": "Low|Moderate|High"
+}`;
+
+    const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
+    
+    const imagePart = {
+      inlineData: {
+        data: base64Data,
+        mimeType: "image/jpeg"
+      }
+    };
+    
+    const result = await model.generateContent([prompt, imagePart]);
+    const response = await result.response;
+    const text = response.text().replace(/```json\n?|\n?```/g, '').trim();
+    
+    const parsed = JSON.parse(text);
+    
+    return {
+      success: true,
+      plant: parsed.plant || 'Unknown',
+      disease: parsed.disease || 'Unknown Disease',
+      confidence: Math.max(0, Math.min(100, parsed.confidence || 70)),
+      description: parsed.description || 'Disease detected',
+      prevention: parsed.prevention || 'Maintain plant health',
+      treatment: parsed.treatment || 'Consult agricultural expert',
+      severity: parsed.severity || 'Moderate'
+    };
+  } catch (error) {
+    console.error('Crop disease image analysis failed:', error);
+    return {
+      success: false,
+      error: 'Failed to analyze image. Please try again with a clearer image of the plant leaf.'
+    };
+  }
+}
