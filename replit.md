@@ -41,7 +41,11 @@ Sarthi is a comprehensive safety platform that protects vulnerable communities t
   - Soil type and fertility rating
   - 3-month weather predictions
   - Profitability analysis
-- Crop disease detection (UI ready, integration pending)
+- **Crop disease detection** with dual approach:
+  - **Dataset search**: 43 diseases across 20+ crops (Tomato, Rice, Wheat, Potato, etc.)
+  - **AI image analysis**: Gemini 1.5 Flash vision model analyzes crop leaf photos
+  - Returns disease name, symptoms, prevention measures, and treatment recommendations
+  - Combines database knowledge with AI vision for accurate diagnosis
 - Market prices and expert consultation links
 
 ## Project Structure
@@ -101,12 +105,14 @@ Sarthi is a comprehensive safety platform that protects vulnerable communities t
 
 ### Agriculture
 - `GET /api/crop-recommendations?district=&state=` - AI crop recommendations
-- `POST /api/analyze-crop-disease` - Crop disease detection (pending)
+- `GET /api/crop-diseases?crop=` - Search diseases by crop name from dataset
+- `POST /api/analyze-crop-disease` - Gemini-powered image analysis for disease detection
 
 ## Environment Variables
 
 ### Required Secrets
-- `OPENAI_API_KEY` - OpenAI API key for AI predictions
+- `GEMINI_API_KEY` - Google Gemini API key for AI predictions and image analysis
+- `OPENAI_API_KEY` - OpenAI API key for AI predictions (legacy)
 - `VITE_FIREBASE_API_KEY` - Firebase API key
 - `VITE_FIREBASE_PROJECT_ID` - Firebase project ID (sarthi-e8175)
 - `VITE_FIREBASE_APP_ID` - Firebase app ID
@@ -155,13 +161,15 @@ Sarthi is a comprehensive safety platform that protects vulnerable communities t
 - All timers reset properly for subsequent alerts
 
 ### AI Integration
-- **Safety Risk Analysis**: GPT-5 analyzes location coordinates and provides risk assessment
-- **Crop Recommendations**: AI suggests crops based on soil, weather, and profitability
+- **Safety Risk Analysis**: Gemini analyzes location coordinates and provides risk assessment
+- **Crop Recommendations**: Gemini suggests crops based on soil, weather, and profitability
+- **Crop Disease Detection**: Gemini 1.5 Flash vision model analyzes crop leaf images, identifies diseases, and provides treatment recommendations
 - **Disaster Prediction**: Weather data analyzed for disaster risk forecasting
 
 ### Data Processing
 - CSV schemes data parsed on server start (150+ schemes loaded)
 - Crime data from PDF converted to structured format
+- Crop disease dataset: 43 diseases across 20+ crops parsed from CSV
 - State coordinates mapped for map visualization
 - Real-time data caching for performance
 
@@ -179,11 +187,14 @@ The app runs on a single port with Vite serving the frontend and proxying API re
 - ✅ **Complete Alert Automation**: Full escalation flow - location detection → browser notification → 30s countdown → emergency siren → 20s auto-SOS countdown → automatic SOS call
 - ✅ **Enhanced Danger Map**: Real crime data visualization with color-coded risk levels (low/medium/high/critical) using Leaflet
 - ✅ **Backend API**: Crime data endpoints for state/district queries, risk analysis, and location-based searches
+- ✅ **Crop Disease Detection**: Integrated 43-disease dataset with Gemini-powered image analysis for accurate plant disease diagnosis
 - ✅ **Production Ready**: All TypeScript errors resolved, runtime bugs fixed, tested and verified by architect
 
 ## Future Enhancements
-- [ ] Complete crop disease detection with image upload
 - [ ] Expand farmer data beyond Punjab to all Indian states
+- [ ] Add integration tests for disease detection (successful analysis and Gemini failure paths)
+- [ ] Monitor Gemini quota/errors in production logs for graceful degradation
+- [ ] Extend disease detection to surface CSV treatment guidance when Gemini omits details
 - [ ] Real-time location tracking with background service
 - [ ] Push notifications for danger zone alerts
 - [ ] Historical crime data visualization and trends
