@@ -560,6 +560,15 @@ export async function parseCropDiseaseCSV(): Promise<CropDiseaseData[]> {
     }
     
     console.log(`✅ Parsed ${diseaseData.length} crop disease records`);
+    
+    // Log first few records for debugging
+    if (diseaseData.length > 0) {
+      console.log(`📋 Sample diseases:`);
+      diseaseData.slice(0, 3).forEach(d => {
+        console.log(`  - ${d.crop}: ${d.disease}`);
+      });
+    }
+    
     return diseaseData.length > 0 ? diseaseData : getFallbackDiseaseData();
   } catch (error) {
     console.error('Crop disease CSV parsing error:', error);
@@ -572,14 +581,26 @@ function getFallbackDiseaseData(): CropDiseaseData[] {
   return [
     { crop: 'Tomato', disease: 'Late Blight', description: 'Fungal infection by Phytophthora infestans', symptoms: 'Dark lesions on leaves and stems', prevention: 'Remove infected plants', cure: 'Apply fungicide like Ridomil' },
     { crop: 'Tomato', disease: 'Early Blight', description: 'Fungal disease caused by Alternaria solani', symptoms: 'Concentric rings on leaves', prevention: 'Crop rotation', cure: 'Use mancozeb spray' },
+    { crop: 'Tomato', disease: 'Fusarium Wilt', description: 'Fungal disease', symptoms: 'Yellowing and wilting of leaves', prevention: 'Use resistant varieties', cure: 'Soil treatment with fungicide' },
     { crop: 'Rice', disease: 'Bacterial Leaf Blight', description: 'Bacterial infection caused by Xanthomonas oryzae', symptoms: 'Pale yellow lesions that turn brown', prevention: 'Proper field sanitation', cure: 'Apply copper-based bactericides' },
     { crop: 'Rice', disease: 'Brown Spot', description: 'Fungal disease', symptoms: 'Small brown spots on leaves', prevention: 'Use balanced fertilizer', cure: 'Apply fungicide' },
+    { crop: 'Rice', disease: 'Leaf Blast', description: 'Fungal disease caused by Magnaporthe oryzae', symptoms: 'Gray-green lesions on leaves', prevention: 'Use resistant varieties', cure: 'Apply tricyclazole' },
     { crop: 'Wheat', disease: 'Rust', description: 'Fungal disease caused by Puccinia spp.', symptoms: 'Orange pustules on stems', prevention: 'Use resistant varieties', cure: 'Apply fungicide spray' },
+    { crop: 'Wheat', disease: 'Powdery Mildew', description: 'Fungal infection', symptoms: 'White powdery growth on leaves', prevention: 'Avoid high humidity', cure: 'Apply sulfur spray' },
     { crop: 'Potato', disease: 'Early Blight', description: 'Fungal disease', symptoms: 'Concentric rings on leaves and stems', prevention: 'Crop rotation', cure: 'Apply mancozeb' },
+    { crop: 'Potato', disease: 'Late Blight', description: 'Fungal infection', symptoms: 'Dark lesions on leaves and tubers', prevention: 'Remove infected plants', cure: 'Apply fungicide' },
     { crop: 'Maize', disease: 'Turcicum Leaf Blight', description: 'Fungal infection', symptoms: 'Gray-green lesions on leaves', prevention: 'Resistant hybrids', cure: 'Fungicide application' },
+    { crop: 'Maize', disease: 'Common Rust', description: 'Fungal infection', symptoms: 'Reddish-brown pustules on leaves', prevention: 'Use resistant hybrids', cure: 'Apply fungicide' },
     { crop: 'Cotton', disease: 'Leaf Curl Virus', description: 'Viral disease', symptoms: 'Leaf curling and stunting', prevention: 'Use resistant varieties', cure: 'Remove infected plants' },
+    { crop: 'Cotton', disease: 'Fusarium Wilt', description: 'Fungal infection', symptoms: 'Yellowing and wilting of leaves', prevention: 'Use resistant varieties', cure: 'Soil treatment with fungicide' },
     { crop: 'Apple', disease: 'Apple Scab', description: 'Fungal infection by Venturia inaequalis', symptoms: 'Dark spots on leaves and fruits', prevention: 'Prune trees', cure: 'Apply captan spray' },
-    { crop: 'Banana', disease: 'Panama Wilt', description: 'Fungal disease', symptoms: 'Foliage yellowing and wilting', prevention: 'Use resistant cultivars', cure: 'Soil treatment with fungicide' }
+    { crop: 'Apple', disease: 'Fire Blight', description: 'Bacterial infection', symptoms: 'Wilting of shoots', prevention: 'Prune infected branches', cure: 'Apply streptomycin spray' },
+    { crop: 'Banana', disease: 'Panama Wilt', description: 'Fungal disease', symptoms: 'Foliage yellowing and wilting', prevention: 'Use resistant cultivars', cure: 'Soil treatment with fungicide' },
+    { crop: 'Banana', disease: 'Black Sigatoka', description: 'Fungal infection', symptoms: 'Black streaks on leaves', prevention: 'Resistant varieties', cure: 'Fungicide application' },
+    { crop: 'Grapes', disease: 'Powdery Mildew', description: 'Fungal disease', symptoms: 'White powdery growth on leaves and fruits', prevention: 'Good ventilation', cure: 'Apply sulfur spray' },
+    { crop: 'Grapes', disease: 'Downy Mildew', description: 'Fungal infection', symptoms: 'Yellow spots on leaves', prevention: 'Use resistant varieties', cure: 'Fungicide application' },
+    { crop: 'Soybean', disease: 'Rust', description: 'Fungal disease', symptoms: 'Orange pustules on leaves', prevention: 'Use resistant varieties', cure: 'Apply fungicide' },
+    { crop: 'Soybean', disease: 'Downy Mildew', description: 'Fungal infection', symptoms: 'Yellowing and fuzzy growth on leaves', prevention: 'Resistant varieties', cure: 'Fungicide application' }
   ];
 }
 

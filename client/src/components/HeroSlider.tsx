@@ -81,6 +81,10 @@ export function HeroSlider() {
               src={slide.image} 
               alt={slide.title}
               className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = `https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=500&fit=crop&crop=center`;
+              }}
             />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-8">
               <div className="max-w-3xl text-center space-y-4">
