@@ -436,8 +436,8 @@ export default function FarmersSupport() {
                       </div>
                       
                       <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
-                        <p className="text-sm font-semibold mb-2 text-safe">Treatment:</p>
-                        <p className="text-sm">{diseaseResult.treatment}</p>
+                        <p className="text-sm font-semibold mb-2 text-safe">Cure/Treatment:</p>
+                        <p className="text-sm">{diseaseResult.cure}</p>
                       </div>
                       
                       <div className="flex items-center gap-2 p-3 bg-primary/5 rounded-lg">

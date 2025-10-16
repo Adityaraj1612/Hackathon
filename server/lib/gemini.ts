@@ -125,7 +125,7 @@ export async function analyzeCropDiseaseImage(imageData: string, knownDiseases: 
   confidence?: number;
   description?: string;
   prevention?: string;
-  treatment?: string;
+  cure?: string;
   severity?: string;
   error?: string;
 }> {
@@ -144,7 +144,7 @@ Analyze the image and provide:
 2. Disease name (match from database if possible, or identify the disease)
 3. Detailed description of what you observe
 4. Prevention measures
-5. Treatment recommendations
+5. Cure/treatment recommendations
 6. Severity level (Low/Moderate/High)
 7. Confidence level (0-100)
 
@@ -156,7 +156,7 @@ Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
   "confidence": 85,
   "description": "detailed description of the disease and symptoms observed",
   "prevention": "prevention measures",
-  "treatment": "treatment recommendations",
+  "cure": "cure and treatment recommendations",
   "severity": "Low|Moderate|High"
 }`;
 
@@ -182,7 +182,7 @@ Respond ONLY with valid JSON in this exact format (no markdown, no code blocks):
       confidence: Math.max(0, Math.min(100, parsed.confidence || 70)),
       description: parsed.description || 'Disease detected',
       prevention: parsed.prevention || 'Maintain plant health',
-      treatment: parsed.treatment || 'Consult agricultural expert',
+      cure: parsed.cure || 'Consult agricultural expert',
       severity: parsed.severity || 'Moderate'
     };
   } catch (error) {
