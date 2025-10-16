@@ -505,29 +505,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { crop } = req.query;
       
-      // Fallback disease data if cache is empty
-      const fallbackDiseases = [
-        { plantName: 'Tomato', diseaseName: 'Late Blight', symptoms: 'Dark spots on leaves with white mold underside', recommendedSolution: 'Use Mancozeb fungicide and remove infected plants' },
-        { plantName: 'Tomato', diseaseName: 'Leaf Curl Virus', symptoms: 'Upward curling and yellowing of leaves', recommendedSolution: 'Control whiteflies and use resistant varieties' },
-        { plantName: 'Tomato', diseaseName: 'Early Blight', symptoms: 'Brown concentric rings on older leaves', recommendedSolution: 'Use Chlorothalonil spray and rotate crops' },
-        { plantName: 'Rice', diseaseName: 'Bacterial Leaf Blight', symptoms: 'Yellowing and drying of leaf tips', recommendedSolution: 'Apply Streptocycline and avoid standing water' },
-        { plantName: 'Rice', diseaseName: 'Brown Spot', symptoms: 'Small round brown lesions on leaves', recommendedSolution: 'Use Mancozeb spray and ensure proper field drainage' },
-        { plantName: 'Rice', diseaseName: 'Blast Disease', symptoms: 'Diamond-shaped lesions on leaves', recommendedSolution: 'Use Tricyclazole fungicide and balanced fertilization' },
-        { plantName: 'Wheat', diseaseName: 'Leaf Rust', symptoms: 'Orange-brown pustules on leaves', recommendedSolution: 'Use Propiconazole or grow rust-resistant varieties' },
-        { plantName: 'Wheat', diseaseName: 'Loose Smut', symptoms: 'Black spore masses replace grains', recommendedSolution: 'Treat seeds with systemic fungicide before sowing' },
-        { plantName: 'Potato', diseaseName: 'Early Blight', symptoms: 'Brown concentric rings on older leaves', recommendedSolution: 'Use Chlorothalonil spray and rotate crops' },
-        { plantName: 'Potato', diseaseName: 'Late Blight', symptoms: 'Water-soaked spots on leaves', recommendedSolution: 'Use Metalaxyl fungicide and destroy infected tubers' },
-        { plantName: 'Maize', diseaseName: 'Turcicum Leaf Blight', symptoms: 'Elongated grayish spots on leaves', recommendedSolution: 'Apply Mancozeb or Propiconazole sprays' },
-        { plantName: 'Maize', diseaseName: 'Downy Mildew', symptoms: 'Yellow stripes and stunted growth', recommendedSolution: 'Use resistant hybrids and Metalaxyl treatment' },
-        { plantName: 'Cotton', diseaseName: 'Leaf Curl Virus', symptoms: 'Thickened curling leaves and stunted growth', recommendedSolution: 'Control whiteflies and remove infected plants' },
-        { plantName: 'Apple', diseaseName: 'Scab', symptoms: 'Olive-green velvety spots on leaves and fruits', recommendedSolution: 'Use Captan or Mancozeb and ensure air circulation' },
-        { plantName: 'Apple', diseaseName: 'Fire Blight', symptoms: 'Wilting shoots with brown-black tips', recommendedSolution: 'Prune infected shoots and apply streptomycin' },
-        { plantName: 'Mango', diseaseName: 'Anthracnose', symptoms: 'Black lesions on leaves and fruits', recommendedSolution: 'Apply copper-based fungicide and prune trees' },
-        { plantName: 'Grapes', diseaseName: 'Downy Mildew', symptoms: 'Yellowish spots on leaves', recommendedSolution: 'Use Bordeaux mixture and prune infected shoots' },
-        { plantName: 'Banana', diseaseName: 'Panama Wilt', symptoms: 'Yellowing and wilting of leaves', recommendedSolution: 'Use disease-free suckers and improve soil drainage' }
-      ];
+      console.log(`🔍 Disease search request: "${crop}"`); 
+      console.log(`📊 Total diseases in cache: ${cropDiseaseCache.length}`);
       
-      const dataSource = cropDiseaseCache.length > 0 ? cropDiseaseCache : fallbackDiseases;
+      const dataSource = cropDiseaseCache;
       
       if (!crop) {
         // Return all diseases if no crop specified
@@ -535,13 +516,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return;
       }
       
-      const cropLower = (crop as string).toLowerCase();
+      const cropLower = (crop as string).toLowerCase().trim();
       const diseases = dataSource.filter(d => 
-        d.plantName.toLowerCase().includes(cropLower) ||
-        d.plantName.toLowerCase() === cropLower
+        d.crop.toLowerCase().includes(cropLower) ||
+        d.crop.toLowerCase() === cropLower
       );
       
-      console.log(`Found ${diseases.length} diseases for crop: ${crop}`);
+      console.log(`✅ Found ${diseases.length} diseases for crop: ${crop}`);
       res.json(diseases);
     } catch (error) {
       console.error('Crop diseases error:', error);
