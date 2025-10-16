@@ -42,9 +42,10 @@ Sarthi is a comprehensive safety platform that protects vulnerable communities t
   - 3-month weather predictions
   - Profitability analysis
 - **Crop disease detection** with dual approach:
-  - **Dataset search**: 43 diseases across 20+ crops (Tomato, Rice, Wheat, Potato, etc.)
+  - **Dataset search**: 87 diseases across 10 crops (Tomato, Rice, Wheat, Potato, Maize, Cotton, Apple, Mango, Grapes, Banana)
   - **AI image analysis**: Gemini 1.5 Flash vision model analyzes crop leaf photos
-  - Returns disease name, symptoms, prevention measures, and treatment recommendations
+  - Returns disease name, description, symptoms, prevention measures, and cure/treatment recommendations
+  - Data structure: crop, disease, description, symptoms, prevention, cure
   - Combines database knowledge with AI vision for accurate diagnosis
 - Market prices and expert consultation links
 
@@ -169,7 +170,8 @@ Sarthi is a comprehensive safety platform that protects vulnerable communities t
 ### Data Processing
 - CSV schemes data parsed on server start (150+ schemes loaded)
 - Crime data from PDF converted to structured format
-- Crop disease dataset: 43 diseases across 20+ crops parsed from CSV
+- Crop disease dataset: 87 diseases across 10 crops parsed from CSV with comprehensive data structure
+- Disease data structure: crop, disease, description, symptoms, prevention, cure
 - State coordinates mapped for map visualization
 - Real-time data caching for performance
 
@@ -187,8 +189,10 @@ The app runs on a single port with Vite serving the frontend and proxying API re
 - ✅ **Complete Alert Automation**: Full escalation flow - location detection → browser notification → 30s countdown → emergency siren → 20s auto-SOS countdown → automatic SOS call
 - ✅ **Enhanced Danger Map**: Real crime data visualization with color-coded risk levels (low/medium/high/critical) using Leaflet
 - ✅ **Backend API**: Crime data endpoints for state/district queries, risk analysis, and location-based searches
-- ✅ **Crop Disease Detection**: Integrated 43-disease dataset with Gemini-powered image analysis for accurate plant disease diagnosis
-- ✅ **Production Ready**: All TypeScript errors resolved, runtime bugs fixed, tested and verified by architect
+- ✅ **Comprehensive Crop Disease System**: Upgraded from 43 to 87 diseases across 10 major crops with complete data structure (crop, disease, description, symptoms, prevention, cure)
+- ✅ **Unified Schema**: Aligned disease data structure across CSV dataset, backend API, Gemini AI responses, and frontend display
+- ✅ **Enhanced Disease Display**: Frontend now shows description, symptoms, prevention, and cure separately for better clarity
+- ✅ **Production Ready**: All TypeScript errors resolved, runtime bugs fixed, schema consistency verified by architect
 
 ## Future Enhancements
 - [ ] Expand farmer data beyond Punjab to all Indian states
